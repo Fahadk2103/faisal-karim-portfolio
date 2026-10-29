@@ -24,7 +24,7 @@ Then open http://localhost:8080.
    - Framework preset: **None**
    - Build command: *(leave empty)*
    - Build output directory: **`site`**
-4. Deploy. The site is served at `https://<project-name>.pages.dev`.
+4. Deploy. The site is served at `https://faisalkarim.pages.dev`.
 
 Every push to the production branch redeploys automatically.
 
