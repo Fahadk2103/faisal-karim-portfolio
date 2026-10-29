@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faisal Karim — Electrical Engineer | Railway Systems &amp; Power</title>
+  <meta name="description" content="Faisal Karim — Electrical Engineer with 13+ years in installation & commissioning of railway signalling, APS, power systems, traction and HV substations. Deputy Construction Manager at Hitachi Rail.">
+  <meta property="og:title" content="Faisal Karim — Electrical Engineer">
+  <meta property="og:description" content="13+ years in railway systems, power, traction and HV substations across the UAE, KSA and Pakistan.">
+  <meta property="og:image" content="/assets/faisal.jpg">
+  <meta name="theme-color" content="#F8FAFC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">Faisal Karim</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn small" href="assets/Faisal-Karim-CV.pdf" download>Download CV</a>
+  </header>
+
+  <!-- ===== HERO: control-room live map with the Blender models ===== -->
+  <section class="hero" id="top">
+    <canvas id="scene" aria-label="Interactive 3D model of electrical and railway equipment"></canvas>
+
+    <!-- live systems map (top-left) -->
+    <aside class="panel map" id="map">
+      <header>
+        <span class="live"><i></i>LIVE</span>
+        <span class="ptitle">Etihad Rail Stage 2 · Systems Map</span>
+        <span class="pmeta">GHUWEIFAT ↔ FUJAIRAH</span>
+      </header>
+      <svg viewBox="0 0 420 230" role="img" aria-label="Schematic of a railway mainline with depot branch, stations and lineside systems">
+        <defs>
+          <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(15,23,42,.07)"/></pattern>
+          <pattern id="rack" width="6" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="3" fill="rgba(96,165,250,.55)"/></pattern>
+        </defs>
+        <rect width="420" height="230" fill="url(#g)"/>
+        <!-- freight yards -->
+        <g opacity=".9">
+          <rect x="28" y="30" width="54" height="34" rx="2" fill="url(#rack)"/>
+          <rect x="92" y="30" width="54" height="34" rx="2" fill="url(#rack)"/>
+          <rect x="28" y="170" width="54" height="34" rx="2" fill="url(#rack)"/>
+          <rect x="300" y="35" width="40" height="26" rx="2" fill="url(#rack)"/>
+          <rect x="350" y="35" width="40" height="26" rx="2" fill="url(#rack)"/>
+        </g>
+        <!-- branch: depot & freight facility -->
+        <path id="branch" d="M200 95V185H380q10 0 10-10V150" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="250" y="176" width="36" height="18" rx="3" fill="#fff" stroke="#22D3EE"/>
+        <text x="268" y="188" class="lbl" text-anchor="middle">DEPOT</text>
+        <rect x="312" y="176" width="44" height="18" rx="3" fill="#fff" stroke="#22D3EE"/>
+        <text x="334" y="188" class="lbl" text-anchor="middle">FREIGHT</text>
+        <!-- mainline -->
+        <path id="main" d="M15 150C70 150 80 95 140 95H250C300 95 310 150 360 150H405" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round"/>
+        <g class="stations" fill="#fff" stroke="#A78BFA" stroke-width="2">
+          <circle cx="15" cy="150" r="4"/><circle cx="140" cy="95" r="4"/><circle cx="250" cy="95" r="4"/><circle cx="360" cy="150" r="4"/><circle cx="405" cy="150" r="4"/>
+        </g>
+        <g class="lbl">
+          <text x="15" y="166">GHUWEIFAT</text><text x="140" y="84" text-anchor="middle">RUWAIS</text>
+          <text x="250" y="84" text-anchor="middle">ABU DHABI</text><text x="360" y="166" text-anchor="middle">DUBAI</text><text x="405" y="135" text-anchor="end">FUJAIRAH</text>
+        </g>
+        <!-- lineside systems (filtered by chips) -->
+        <g class="sys" data-sys="SIG"><rect x="166" y="104" width="24" height="12" rx="2"/><text x="178" y="113">SIG</text></g>
+        <g class="sys" data-sys="APS"><rect x="104" y="106" width="24" height="12" rx="2"/><text x="116" y="115">APS</text></g>
+        <g class="sys" data-sys="TLC"><rect x="266" y="104" width="24" height="12" rx="2"/><text x="278" y="113">TLC</text></g>
+        <g class="sys" data-sys="PWR"><rect x="206" y="130" width="26" height="12" rx="2"/><text x="219" y="139">PWR</text></g>
+        <g class="sys" data-sys="SEC"><rect x="212" y="192" width="24" height="12" rx="2"/><text x="224" y="201">SEC</text></g>
+        <g class="sys" data-sys="RFD"><rect x="366" y="100" width="24" height="12" rx="2"/><text x="378" y="109">RFD</text></g>
+        <!-- moving train + branch pulses -->
+        <g class="train"><rect x="-8" y="-3" width="16" height="6" rx="2"/>
+          <animateMotion dur="16s" repeatCount="indefinite" rotate="auto"><mpath href="#main"/></animateMotion></g>
+        <circle class="pulse" r="2.5"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#branch"/></animateMotion></circle>
+        <circle class="pulse" r="2.5"><animateMotion dur="7s" begin="-3.5s" repeatCount="indefinite"><mpath href="#branch"/></animateMotion></circle>
+      </svg>
+    </aside>
+
+    <!-- telemetry (bottom-left) -->
+    <aside class="panel telemetry">
+      <header><span class="ptitle">Voltage classes · installed &amp; commissioned</span></header>
+      <ul class="bars">
+        <li><span>400 kV</span><i style="--w:100%"></i><small>GIS · MBR Solar Park</small></li>
+        <li><span>380 kV</span><i style="--w:94%"></i><small>GIS · KSA substation</small></li>
+        <li><span>132 kV</span><i style="--w:72%"></i><small>Grid station · GIS</small></li>
+        <li><span>33 kV</span><i style="--w:54%"></i><small>Switchgear · Dubai Metro</small></li>
+        <li><span>15.75 kV</span><i style="--w:40%"></i><small>Generator · HV Tx</small></li>
+        <li><span>6.6 kV</span><i style="--w:28%"></i><small>MV distribution</small></li>
+      </ul>
+    </aside>
+
+    <!-- system chips + equipment cards (bottom-centre) -->
+    <div class="fleet">
+      <div class="chips" id="chips" role="group" aria-label="Filter lineside systems">
+        <button data-sys="SIG">SIG</button><button data-sys="TLC">TLC</button><button data-sys="APS">APS</button>
+        <button data-sys="PWR">PWR</button><button data-sys="SEC">SEC</button><button data-sys="RFD">RFD</button>
+      </div>
+      <div class="cards" id="cards" role="group" aria-label="3D components"></div>
+    </div>
+
+    <!-- mission panel (right) -->
+    <aside class="panel mission" id="mission">
+      <div id="intro">
+        <p class="eyebrow">Deputy Construction Manager · Hitachi Rail</p>
+        <h1>Faisal Karim</h1>
+        <p class="lead">Electrical Engineer with 13+ years delivering installation &amp; commissioning of signalling, APS, power, traction and security systems across Metro, high-speed and passenger railway projects.</p>
+        <div class="cta">
+          <a class="btn primary" href="#experience">View experience</a>
+          <a class="btn ghost" href="mailto:faisal91221@yahoo.com">Get in touch</a>
+        </div>
+        <p class="hint" id="hint">Drag to orbit · Click a component to inspect</p>
+      </div>
+      <div id="detail" hidden>
+        <div class="dhead"><span class="badge360">360</span><button class="close" id="close" aria-label="Close">×</button></div>
+        <p class="eyebrow" id="dTag"></p>
+        <h2 id="dTitle"></h2>
+        <p class="lead" id="dBody"></p>
+        <ul id="dList"></ul>
+      </div>
+    </aside>
+
+    <div class="loader" id="loader"><span></span>Energising…</div>
+  </section>
+
+  <main>
+    <!-- ===== ABOUT (Figma-style hero block) ===== -->
+    <section id="about" class="section about">
+      <div>
+        <span class="pill">13+ years · Railway Systems &amp; Power</span>
+        <h2 class="big">Bringing complex systems safely into service</h2>
+        <p class="sub">Electrical Engineer · Deputy Construction Manager, Hitachi Rail STS</p>
+        <p class="loc">📍 United Arab Emirates</p>
+        <p>Faisal brings over 13 years of post-qualification experience in the installation and commissioning of Signalling &amp; APS systems, Power Systems, Traction, Security equipment and cabling works across Metro, Conventional, High-Speed and Passenger Railway projects.</p>
+        <p>He currently serves on the Etihad Rail Stage 2 &amp; Passenger Service COSPA project, managing multi-discipline installation and commissioning from line-side infrastructure to depots and substations.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:faisal91221@yahoo.com">✉ Get in touch</a>
+          <a class="btn" href="https://www.linkedin.com/in/faisal-karim-24480a1a" target="_blank" rel="noopener">View LinkedIn</a>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="avatar"><img src="assets/faisal.jpg" alt="Portrait of Faisal Karim" width="254" height="291"><i></i></div>
+        <dl class="stats">
+          <div><dt>13+</dt><dd>Years experience</dd></div>
+          <div><dt>400 kV</dt><dd>Highest switchgear class</dd></div>
+          <div><dt>1 GW</dt><dd>MBR Solar Park Ph. IV</dd></div>
+          <div><dt>15.7 km</dt><dd>Dubai Metro Route 2020</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== COMPETENCE MATRIX ===== -->
+    <section id="skills" class="section">
+      <h2 class="center">Engineering Competence Matrix</h2>
+      <p class="center sub">Technical expertise across railway systems, HV power and construction management</p>
+      <div class="matrix">
+        <div class="card radar">
+          <svg viewBox="-55 0 410 300" role="img" aria-label="Radar chart of competence areas">
+            <g fill="none" stroke="#E2E8F0">
+              <polygon points="150,40 245.3,95 245.3,205 150,260 54.7,205 54.7,95"/>
+              <polygon points="150,67.5 221.4,108.8 221.4,191.3 150,232.5 78.6,191.3 78.6,108.8"/>
+              <polygon points="150,95 197.6,122.5 197.6,177.5 150,205 102.4,177.5 102.4,122.5"/>
+              <polygon points="150,122.5 173.8,136.3 173.8,163.8 150,177.5 126.2,163.8 126.2,136.3"/>
+              <path d="M150 150V40M150 150L245.3 95M150 150L245.3 205M150 150V260M150 150L54.7 205M150 150L54.7 95"/>
+            </g>
+            <polygon class="area" points="150,45.5 237.6,99.4 231,196.8 150,232.5 64.3,199.5 66.2,101.6"/>
+            <g class="dots"><circle cx="150" cy="45.5" r="3"/><circle cx="237.6" cy="99.4" r="3"/><circle cx="231" cy="196.8" r="3"/><circle cx="150" cy="232.5" r="3"/><circle cx="64.3" cy="199.5" r="3"/><circle cx="66.2" cy="101.6" r="3"/></g>
+            <g class="axis">
+              <text x="150" y="28" text-anchor="middle">Railway Systems</text>
+              <text x="256" y="88">Power &amp; HV</text>
+              <text x="256" y="216">Traction</text>
+              <text x="150" y="282" text-anchor="middle">Renewables</text>
+              <text x="44" y="216" text-anchor="end">Construction Mgmt</text>
+              <text x="44" y="88" text-anchor="end">Testing &amp; QA</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tags">
+          <h4>Railway Systems</h4><p><span>Signalling</span><span>Telecom</span><span>APS</span><span>CBTC</span><span>ATS</span><span>SCADA</span><span>Security</span><span>RFD</span></p>
+          <h4>Power &amp; Traction</h4><p><span>400 kV GIS</span><span>380 kV GIS</span><span>132 kV</span><span>33 kV switchgear</span><span>HV / MV transformers</span><span>Traction</span><span>HESOP</span><span>MCC / VSD / VFD</span><span>Earthing</span></p>
+          <h4>Renewables &amp; Generation</h4><p><span>CSP</span><span>Solar PV</span><span>Grid-tied</span><span>Off-grid</span><span>Hybrid</span><span>Net metering</span><span>Gas engines</span><span>Steam turbine</span></p>
+          <h4>Testing &amp; Quality</h4><p><span>Megger</span><span>VLF</span><span>ITR</span><span>Punch lists</span><span>NCR</span><span>As-built drawings</span></p>
+          <h4>Management</h4><p><span>Construction management</span><span>PTW</span><span>Track possessions</span><span>Interface management</span><span>Progress reporting</span><span>EPM certified</span></p>
+          <h4>Tools</h4><p><span>AutoCAD</span><span>MS Project</span><span>Excel</span><span>Word</span><span>PowerPoint</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section">
+      <h2 class="center">Professional Experience</h2>
+      <p class="center sub">Delivering railway, power and renewable projects across the UAE, KSA and Pakistan</p>
+      <ol class="timeline">
+        <li><article class="card job">
+          <span class="current">Current</span>
+          <img class="logo" src="assets/logos/hitachi-rail.jpg" alt="Hitachi Rail" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Deputy Construction Manager</h3><p class="org">Hitachi Rail STS</p>
+          <p class="meta">📅 Dec 2021 – Present · UAE · Etihad Rail Stage 2 &amp; Passenger Service COSPA</p></div>
+          <ul>
+            <li>Manage and supervise installation &amp; commissioning across SIG, TLC, Power, MEP, APS, SEC &amp; RFD systems.</li>
+            <li>Oversee line-side infrastructure, freight facilities, depots, substations, shelters and package units.</li>
+            <li>Manage subsystem interfaces (SIG, APS, TLC, Power) to ensure compatibility and integrity.</li>
+            <li>Own PTW and track possession requests, progress reporting, red-marked and as-built documentation.</li>
+            <li>Record commissioning non-conformities with detailed defect descriptions and test evidence.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <img class="logo" src="assets/logos/china-energy.jpg" alt="China Energy Engineering Group" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Electrical Project Engineer</h3><p class="org">China Energy HPCC</p>
+          <p class="meta">📅 Dec 2020 – Nov 2021 · UAE · MBR Solar Park Phase IV (750 MW CSP + 250 MW PV)</p></div>
+          <ul>
+            <li>Installation of 400 kV, 15.75 kV, 6.6 kV, MV &amp; LV switchgear and a 160 MVA HV transformer (400/15.75 kV).</li>
+            <li>Siemens SST-700 108.5 MW steam turbine, 28 MVA MV transformer, excitation transformer, DBs, VSDs, VFDs, MCCs.</li>
+            <li>MCCs for molten salt (hot/cold), cooling, steam reheating, water &amp; oil systems; RFIs, TOP documents, punch lists.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <img class="logo" src="assets/logos/alstom.jpg" alt="Alstom" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Power System Installation Engineer</h3><p class="org">Alstom Transport</p>
+          <p class="meta">📅 Nov 2018 – Nov 2020 · UAE · Dubai Metro Red Line Extension, Route 2020 (15.7 km)</p></div>
+          <ul>
+            <li>Supervised viaduct, station and tunnel activities and stakeholder interfaces.</li>
+            <li>Installed 33 kV switchgear, LV &amp; control, traction, HESOP and transformers; Signalling, APS, SCADA, ATS, CBTC equipment.</li>
+            <li>Cable laying &amp; terminations, earthing; Megger, DC equipment and VLF testing of MV cables.</li>
+            <li>LPIC for works in operating metro stations under SERCO guidelines.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <img class="logo" src="assets/logos/tesla.jpg" alt="Tesla Industries" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Solar PV Engineer</h3><p class="org">Tesla Industries</p>
+          <p class="meta">📅 Aug 2016 – Oct 2018 · Pakistan · Renewable Energy</p></div>
+          <ul>
+            <li>Site engineering analysis and energy-efficiency evaluation for residential, commercial and industrial customers.</li>
+            <li>Technical direction for installation teams; net-metering, grid-tied, off-grid and hybrid PV systems.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <img class="logo dark" src="assets/logos/al-fozan.svg" alt="Abdulaziz Ahmed Al-Fozan Trading Establishment" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Electrical Engineer</h3><p class="org">Abdulaziz Ahmed Al-Fozan Trading Establishment</p>
+          <p class="meta">📅 Mar 2014 – Jul 2016 · KSA · Medical Science College for Girls</p></div>
+          <ul>
+            <li>Prepared LV, MV, lighting, power, panel schedule and SLD drawings; O&amp;M of 400/147/110 kVA gensets.</li>
+            <li>380 kV substation: transformer erection, 380 kV &amp; 132 kV GIS switchgear.</li>
+            <li>Grounding, lightning and protection systems; ITRs, estimates and resource planning.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <span class="logo mono" aria-hidden="true">DE</span>
+          <div class="jhead"><h3>Shift Engineer</h3><p class="org">Davis Energen</p>
+          <p class="meta">📅 Jan 2013 – Feb 2014 · Pakistan · 10.5 MW IPP Power House</p></div>
+          <ul>
+            <li>Operated GE Jenbacher Type-6 J620 GS (3,360 kW) gas engines; planned, preventive &amp; predictive maintenance.</li>
+            <li>Monitored instrumentation (RTD, PT100, flow meters) for plant performance, availability and reliability.</li>
+          </ul>
+        </article></li>
+        <li><article class="card job">
+          <img class="logo" src="assets/logos/fesco.png" alt="FESCO" width="56" height="56" loading="lazy">
+          <div class="jhead"><h3>Trainee Engineer</h3><p class="org">FESCO</p>
+          <p class="meta">📅 Jul 2012 – Dec 2012 · Pakistan · 132 kV Grid Station, Jhang</p></div>
+          <ul><li>Monitored and controlled load sharing between grid stations; switchgear operation and maintenance.</li></ul>
+        </article></li>
+      </ol>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section">
+      <h2 class="center">Featured Projects</h2>
+      <p class="center sub">Railway, power generation and transmission programmes delivered on site</p>
+      <div class="grid2">
+        <article class="card project">
+          <img class="cover" src="assets/projects/etihad-rail.jpg" alt="Etihad Rail passenger train and freight locomotive" loading="lazy">
+          <div class="pbody"><h3>Etihad Rail Stage 2 &amp; Passenger Service</h3><span class="award">★ Hitachi Rail · UAE national rail network</span>
+          <p>Multi-discipline installation and commissioning of signalling, telecom, power, APS, security and RFD systems across line-side infrastructure, depots and substations.</p>
+          <p class="tt"><span>Signalling</span><span>APS</span><span>Telecom</span><span>Power</span></p></div>
+        </article>
+        <article class="card project">
+          <img class="cover" src="assets/projects/mbr-solar.png" alt="Aerial view of the MBR Solar Park PV arrays" loading="lazy">
+          <div class="pbody"><h3>MBR Solar Park Phase IV</h3><span class="award">★ 750 MW CSP + 250 MW PV hybrid</span>
+          <p>400 kV switchyard, 160 MVA HV transformer, Siemens SST-700 steam turbine and MCCs for molten-salt, cooling and steam systems on a 1 GW hybrid CSP + PV plant.</p>
+          <p class="tt"><span>400 kV</span><span>CSP</span><span>HV Tx</span><span>MCC</span></p></div>
+        </article>
+        <article class="card project">
+          <img class="cover" src="assets/projects/dubai-metro.jpg" alt="Dubai Metro train on the Route 2020 viaduct" loading="lazy">
+          <div class="pbody"><h3>Dubai Metro Route 2020</h3><span class="award">★ Alstom · 15.7 km Red Line Extension</span>
+          <p>33 kV switchgear, traction and HESOP installation across viaduct, stations and tunnels; CBTC, ATS, SCADA and APS equipment, with Megger and VLF testing of MV cables.</p>
+          <p class="tt"><span>33 kV</span><span>Traction</span><span>CBTC</span><span>VLF</span></p></div>
+        </article>
+        <article class="card project">
+          <img class="cover" src="assets/projects/ksa-substation.jpg" alt="High-voltage substation switchyard" loading="lazy">
+          <div class="pbody"><h3>380 kV Substation &amp; Medical College</h3><span class="award">★ KSA · GIS switchgear</span>
+          <p>Transformer erection and 380 kV / 132 kV GIS switchgear, plus LV, MV, lighting and power design for a medical science college with genset O&amp;M.</p>
+          <p class="tt"><span>380 kV</span><span>GIS</span><span>SLD</span><span>Gensets</span></p></div>
+        </article>
+        <article class="card project">
+          <img class="cover" src="assets/projects/ipp-power-house.jpg" alt="Power plant with stacks and process pipework" loading="lazy" style="object-position: 50% 30%">
+          <div class="pbody"><h3>10.5 MW IPP Power House</h3><span class="award">★ GE Jenbacher J620 gas engines</span>
+          <p>Shift operation of 3,360 kW gas-engine gensets with planned, preventive and predictive maintenance against uptime and availability KPIs.</p>
+          <p class="tt"><span>Gas engines</span><span>O&amp;M</span><span>KPIs</span></p></div>
+        </article>
+        <article class="card project">
+          <img class="cover" src="assets/projects/jhang-grid.jpg" alt="132 kV grid station with transformer and gantries" loading="lazy" style="object-position: 50% 65%">
+          <div class="pbody"><h3>132 kV Grid Station, Jhang</h3><span class="award">★ FESCO · Transmission</span>
+          <p>Load-sharing monitoring and control between grid stations, switchgear operation and preventive and corrective maintenance.</p>
+          <p class="tt"><span>132 kV</span><span>Load sharing</span><span>Maintenance</span></p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications" class="section">
+      <h2 class="center">Licenses &amp; Certifications</h2>
+      <p class="center sub">Professional registrations, recognitions and technical training</p>
+      <div class="grid3 certs">
+        <article class="card"><img class="logo" src="assets/logos/alstom.jpg" alt="Alstom" width="44" height="44" loading="lazy"><div><h4>Certificate of Recognition</h4><p>Alstom · Temporary Operation Department</p><p class="meta">Sep 2020</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/alstom.jpg" alt="Alstom" width="44" height="44" loading="lazy"><div><h4>Certificate of Recognition</h4><p>Alstom · Power Supply Department</p><p class="meta">Jul 2020</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/eltherm.png" alt="eltherm group" width="44" height="44" loading="lazy"><div><h4>Electrical Heat Tracing Systems</h4><p>eltherm group</p><p class="meta">Jul 2019</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/pec.png" alt="Pakistan Engineering Council" width="44" height="44" loading="lazy"><div><h4>Registered Engineer</h4><p>Pakistan Engineering Council</p><p class="meta">Nov 2013 · ELECT / 38423</p></div></article>
+        <article class="card"><span class="logo mono" aria-hidden="true">PM</span><div><h4>Engineering Project Management</h4><p>Professional certification</p><p class="meta">2013</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/case.png" alt="C.A.S.E." width="44" height="44" loading="lazy"><div><h4>National Robosprint 2012</h4><p>C.A.S.E.</p><p class="meta">Jul 2012</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/npo.png" alt="National Productivity Organization" width="44" height="44" loading="lazy"><div><h4>Energy Management</h4><p>National Productivity Organization</p><p class="meta">Nov 2011 · NPO/FBD/EM/1111/1016</p></div></article>
+        <article class="card"><img class="logo" src="assets/logos/pbte.png" alt="Punjab Board of Technical Education" width="44" height="44" loading="lazy"><div><h4>Electronic Equipment Repair</h4><p>Punjab Board of Technical Education, Lahore</p><p class="meta">Jul 2006 · PBTE/TSRP-1/2006/004403</p></div></article>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section">
+      <h2 class="center">Education &amp; Training</h2>
+      <div class="grid3 grid2">
+        <article class="card"><h4>Education</h4><p>B.Sc. Electrical Engineering (2012)</p></article>
+        <article class="card"><h4>Training</h4><p>Quality Up · TQM · Nano Technology</p></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER / CONTACT ===== -->
+  <footer id="contact">
+    <div class="fgrid">
+      <div><h3>Faisal Karim</h3><p>Electrical Engineer specialising in the installation and commissioning of railway systems, HV power and traction across the Middle East and Pakistan.</p></div>
+      <div><h4>Contact</h4>
+        <a href="mailto:faisal91221@yahoo.com">✉ faisal91221@yahoo.com</a>
+        <a href="tel:+971547879209">☎ +971 54 787 9209 (UAE)</a>
+        <a href="tel:+923457613662">☎ +92 345 761 3662 (PK)</a></div>
+      <div><h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/faisal-karim-24480a1a" target="_blank" rel="noopener">in LinkedIn Profile</a>
+        <a href="assets/Faisal-Karim-CV.pdf" download>⤓ Download CV</a>
+        <span>🚗 Valid UAE driving licence</span></div>
+    </div>
+    <p class="copy">© <span id="yr"></span> Faisal Karim · 3D models built in Blender</p>
+  </footer>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
